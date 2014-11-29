@@ -21,3 +21,5 @@ This can be use for
 1. Unit Testing
 2. Making demos
 3. Recording user actions when a bug occured 
+
+See [https://github.com/ignatandrei/EFRecordAndPlay/wiki/](https://github.com/ignatandrei/EFRecordAndPlay/wiki/)
