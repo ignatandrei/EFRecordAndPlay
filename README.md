@@ -8,13 +8,13 @@ With this helper you can record and then play the actions in Entity Framework(>=
 
 For recording actions just reference the dll and use
 
-DbInterception.Add(new InterceptionRecordOrPlay(@"C:\filme\a.zip", ModeInterception.Record)); 
+    DbInterception.Add(new InterceptionRecordOrPlay(@"C:\filme\a.zip", ModeInterception.Record)); 
 
 (Note: For ASP.NET you will use Server.MapPath("~/a folder that supports write/namefile.zip")
 
 For replay use 
 
-DbInterception.Add(new InterceptionRecordOrPlay(@"C:\filme\a.zip", ModeInterception.Play));
+    DbInterception.Add(new InterceptionRecordOrPlay(@"C:\filme\a.zip", ModeInterception.Play));
 
 This can be use for 
 
