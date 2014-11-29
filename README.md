@@ -10,6 +10,7 @@ For recording actions just reference the dll and use
 
 DbInterception.Add(new InterceptionRecordOrPlay(@"C:\filme\a.zip", ModeInterception.Record)); 
 
+(Note: For ASP.NET you will use Server.MapPath("~/a folder that supports write/namefile.zip")
 
 For replay use 
 

@@ -60,7 +60,8 @@ namespace EFRecordAndPlay
             var xs=new XmlSerializer(typeof(InterceptionData));
             var backupQueue=new Queue<InterceptionData>();
             string pathStore = Path.GetTempPath();
-            pathStore = Path.Combine(pathStore, Assembly.GetEntryAssembly().GetName().Name);
+            var ass = (Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly());
+            pathStore = Path.Combine(pathStore, ass.GetName().Name);
             if(Directory.Exists(pathStore))
                 Directory.Delete(pathStore,true);
 
