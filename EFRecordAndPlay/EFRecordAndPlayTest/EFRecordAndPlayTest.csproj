@@ -68,6 +68,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BasicDemoTesting.cs" />
     <Compile Include="DatabaseRelated\Department.cs" />
     <Compile Include="DatabaseRelated\Employee.cs" />
     <Compile Include="DatabaseRelated\ContextForDatabase.cs" />
@@ -77,6 +78,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="VerifyIValidatableWorks.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="EFRecordAndPlay.sdf">
