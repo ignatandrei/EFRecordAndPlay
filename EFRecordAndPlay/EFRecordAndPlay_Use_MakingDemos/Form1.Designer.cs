@@ -35,6 +35,7 @@
             this.firstNameEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameEmployeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddDepartment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.departmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
@@ -50,7 +51,6 @@
             this.cmbDepartments.Name = "cmbDepartments";
             this.cmbDepartments.Size = new System.Drawing.Size(121, 21);
             this.cmbDepartments.TabIndex = 0;
-           
             // 
             // departmentBindingSource
             // 
@@ -93,11 +93,22 @@
             // 
             this.employeeBindingSource.DataSource = typeof(EFRecordAndPlay_Use_MakingDemos.DatabaseRelated.Employee);
             // 
+            // btnAddDepartment
+            // 
+            this.btnAddDepartment.Location = new System.Drawing.Point(263, 28);
+            this.btnAddDepartment.Name = "btnAddDepartment";
+            this.btnAddDepartment.Size = new System.Drawing.Size(115, 23);
+            this.btnAddDepartment.TabIndex = 2;
+            this.btnAddDepartment.Text = "Add Department";
+            this.btnAddDepartment.UseVisualStyleBackColor = true;
+            this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 364);
+            this.Controls.Add(this.btnAddDepartment);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbDepartments);
             this.Name = "Form1";
@@ -118,6 +129,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameEmployeeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameEmployeeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource departmentBindingSource;
+        private System.Windows.Forms.Button btnAddDepartment;
     }
 }
 
