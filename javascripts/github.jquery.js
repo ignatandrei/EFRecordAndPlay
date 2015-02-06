@@ -17,9 +17,12 @@ jQuery.fn.loadRepositories = function(username) {
     var list = $('<dl/>');
     target.empty().append(list);
     $(repos).each(function() {
-      list.append('<dt><a href="'+ this.url +'">' + this.name + this.fork + '</a></dt>');
+     if(!this.fork){
+      list.append('<dt><a href="'+ this.url +'">' + this.name + '</a></dt>');
       list.append('<dd>' + this.description + '</dd>');
-    });
+    
+     }
+     });
   });
  
   function sortByNumberOfWatchers(repos) {
