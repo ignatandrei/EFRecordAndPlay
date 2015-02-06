@@ -14,13 +14,17 @@ jQuery.fn.loadRepositories = function(username) {
     var repos = data.data;
     //sortByNumberOfWatchers(repos);
  
-    var list = $('<dl/>');
+    var list = $('<div />');
     target.empty().append(list);
     $(repos).each(function() {
      if(!this.fork){
-      list.append('<dt><a href="'+ this.url +'">' + this.name + '</a></dt>');
-      list.append('<dd>' + this.description + '</dd>');
-    
+      
+       list.append('<h1>'+ this.name +'</h1>');
+        list.append('<p>' + this.description + '</p>')
+
+        list.append('<p class="view"><a href='+ this.url +'>View the Project on GitHub <small>'+ this.full_name +'</small></a></p>');
+
+      
      }
      });
   });
