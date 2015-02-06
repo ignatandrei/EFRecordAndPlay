@@ -10,6 +10,7 @@ jQuery.fn.loadRepositories = function(username) {
  window.alert('a');
   var target = this; 
   $.githubUser(username, function(data) {
+   debugger;
     var repos = data;
     //sortByNumberOfWatchers(repos);
  
