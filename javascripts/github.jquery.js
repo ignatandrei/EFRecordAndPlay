@@ -7,7 +7,7 @@ jQuery.githubUser = function(username, callback) {
  
 jQuery.fn.loadRepositores = function(username) {
   this.html("<span>Querying GitHub for repositories...</span>");
- 
+ window.alert('a');
   var target = this; 
   $.githubUser(username, function(data) {
     var repos = data.user.repositories;
