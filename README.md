@@ -27,3 +27,6 @@ See [https://github.com/ignatandrei/EFRecordAndPlay/wiki/](https://github.com/ig
 Video for using at [https://www.youtube.com/playlist?list=PL4aSKgR4yk4Mi1eLKArsgoqQRluxXv2-Y](https://www.youtube.com/playlist?list=PL4aSKgR4yk4Mi1eLKArsgoqQRluxXv2-Y)
 
 NuGET package at [https://www.nuget.org/packages/EFRecordAndPlay/](https://www.nuget.org/packages/EFRecordAndPlay/)
+
+Tutorial series at 
+[http://msprogrammer.serviciipeweb.ro/category/howto/entity-framework-howto/](http://msprogrammer.serviciipeweb.ro/category/howto/entity-framework-howto/)
