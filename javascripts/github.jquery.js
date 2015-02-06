@@ -7,11 +7,11 @@ jQuery.githubUser = function(username, callback) {
  
 jQuery.fn.loadRepositories = function(username) {
   this.html("<span>Querying GitHub for repositories...</span>");
- window.alert('a');
+
   var target = this; 
   $.githubUser(username, function(data) {
    debugger;
-    var repos = data;
+    var repos = data.data;
     //sortByNumberOfWatchers(repos);
  
     var list = $('<dl/>');
