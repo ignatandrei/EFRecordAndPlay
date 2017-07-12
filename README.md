@@ -30,3 +30,15 @@ NuGET package at [https://www.nuget.org/packages/EFRecordAndPlay/](https://www.n
 
 Tutorial series at 
 [http://msprogrammer.serviciipeweb.ro/category/howto/entity-framework-howto/](http://msprogrammer.serviciipeweb.ro/category/howto/entity-framework-howto/)
+
+# Support this software
+
+This software is available for free and all of its source code is public domain.  If you want further modifications, or just to show that you appreciate this, money are always welcome.
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](paypal.me/ignatandrei1970/25)
+
+* $5 for a cup of coffee
+* $10 for pizza 
+* $25 for a lunch or two
+* $100+ for upgrading my development environment
+
