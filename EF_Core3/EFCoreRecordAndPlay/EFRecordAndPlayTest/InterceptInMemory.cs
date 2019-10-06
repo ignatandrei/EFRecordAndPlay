@@ -3,10 +3,10 @@ using Xunit;
 
 namespace EFRecordAndPlayTest
 {
-    public class UnitTest1
+    public class InterceptInMemory
     {
         [Fact]
-        public void TestInMemory()
+        public void TestPlayReplayInMemory()
         {
 
         }
