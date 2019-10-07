@@ -5,6 +5,7 @@
 *.suo
 *.user
 *.sln.docstates
+.vs/
 
 # Build results
 [Dd]ebug/
@@ -181,3 +182,5 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+*.lock
+EF_Core3/EFCoreRecordAndPlay/.vs/EFCoreRecordAndPlay/DesignTimeBuild/.dtbcache
