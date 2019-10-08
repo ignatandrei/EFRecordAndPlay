@@ -185,3 +185,5 @@ FakesAssemblies/
 *.lock
 EF_Core3/EFCoreRecordAndPlay/.vs/EFCoreRecordAndPlay/DesignTimeBuild/.dtbcache
 *.ide
+EF_Core3/EFCoreRecordAndPlay/.vs/EFCoreRecordAndPlay/DesignTimeBuild/.dtbcache
+EF_Core3/EFCoreRecordAndPlay/.vs/EFCoreRecordAndPlay/v16/Server/sqlite3/storage.ide

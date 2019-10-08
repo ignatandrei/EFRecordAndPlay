@@ -32,23 +32,32 @@ namespace EFRecordAndPlayTest
         {
             #region record
             string nameDbToCreate = "testing.db";
+            int nrItems = 1;
+            string nameFileToRecord = "a.zip";
             if (File.Exists(nameDbToCreate))
             {
                 File.Delete(nameDbToCreate);
             }
+            if (File.Exists(nameFileToRecord))
+            {
+                File.Delete(nameFileToRecord);
+            }
             var opt = new DbContextOptions<MyDataContext>();
             var optionsBuilder = new DbContextOptionsBuilder(opt);
-            optionsBuilder.AddInterceptors(new InterceptionRecordOrPlay("a.zip", ModeInterception.Record));
+            optionsBuilder.AddInterceptors(new InterceptionRecordOrPlay(nameFileToRecord, ModeInterception.Record));
             optionsBuilder.UseSqlite($"Data Source={nameDbToCreate}");
 
             using (var c = new MyDataContext(optionsBuilder.Options as DbContextOptions<MyDataContext>))
             {
                 c.Database.EnsureCreated();
-                c.PersonWithBlog.Add(new PersonWithBlog()
+                for (int i = 0; i < nrItems; i++)
                 {
-                    Name = "Andrei",
-                    Url = "http://msprogrammer.serviciipeweb.ro/"
-                });
+                    c.PersonWithBlog.Add(new PersonWithBlog()
+                    {
+                        Name = "Andrei" +i,
+                        Url = "http://msprogrammer.serviciipeweb.ro/"
+                    });
+                }
 
                 c.SaveChanges();
                 var  person= c.PersonWithBlog.FirstOrDefault(it => it.Id == 1);
@@ -60,21 +69,23 @@ namespace EFRecordAndPlayTest
             File.Delete(nameDbToCreate);
             opt = new DbContextOptions<MyDataContext>();
             optionsBuilder = new DbContextOptionsBuilder(opt);
-            optionsBuilder.AddInterceptors(new InterceptionRecordOrPlay("a.zip", ModeInterception.Play));
+            optionsBuilder.AddInterceptors(new InterceptionRecordOrPlay(nameFileToRecord, ModeInterception.Play));
             optionsBuilder.UseSqlite($"Data Source={nameDbToCreate}");
             using var cNotExists = new MyDataContext(optionsBuilder.Options as DbContextOptions<MyDataContext>);
 
-            //c.Database.EnsureCreated();
-            cNotExists.PersonWithBlog.Add(new PersonWithBlog()
+            cNotExists.Database.EnsureCreated();
+            for (int i = 0; i < nrItems; i++)
             {
-                Name = "Andrei",
-                Url = "http://msprogrammer.serviciipeweb.ro/"
-            });
-
+                cNotExists.PersonWithBlog.Add(new PersonWithBlog()
+                {
+                    Name = "my test Andrei",
+                    Url = "http://msprogrammer.serviciipeweb.ro/"
+                });
+            }
             cNotExists.SaveChanges();
-            var q = cNotExists.PersonWithBlog.FirstOrDefault(it => it.Id == 1);
+            var q = cNotExists.PersonWithBlog.FirstOrDefault(it => it.Id == 170);
             Assert.NotNull(q);
-
+            Assert.DoesNotContain("test", q.Name);
             #endregion
 
         }
