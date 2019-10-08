@@ -104,7 +104,7 @@ namespace EFRecordAndPlay
         public override int NonQueryExecuted(DbCommand command, CommandExecutedEventData eventData, int result)
         {
             if (ModeInterception != ModeInterception.Record)
-                return base.NonQueryExecuted(command, eventData, result); ;
+                return result;
 
             _dataForInterception.Enqueue(new InterceptionData(command){ NonQuery = result});
 
@@ -128,27 +128,27 @@ namespace EFRecordAndPlay
         public override DbDataReader ReaderExecuted(DbCommand command, CommandExecutedEventData eventData, DbDataReader result)
         {
             if (ModeInterception != ModeInterception.Record)
-                return base.ReaderExecuted(command, eventData, result);
+                return result;
 
-            var types = new Dictionary<string, Type>();
-            for (var i = 0; i < result.FieldCount; i++)
-            {
-                var t = result.GetFieldType(i);
-                var name = result.GetName(i);
-                types.Add(name, t);
-            }
+            //var types = new Dictionary<string, Type>();
+            //for (var i = 0; i < result.FieldCount; i++)
+            //{
+            //    var t = result.GetFieldType(i);
+            //    var name = result.GetName(i);
+            //    types.Add(name, t);
+            //}
 
 
             var dataTable = new DataTable { TableName = command.CommandText };
             dataTable.Load(result);
-            foreach (var item in types)
-            {
-                var existingType = dataTable.Columns[item.Key].DataType;
-                if (existingType.FullName != item.Value.FullName)
-                {
-                    dataTable.Columns[item.Key].DataType = item.Value;
-                }
-            }
+            //foreach (var item in types)
+            //{
+            //    var existingType = dataTable.Columns[item.Key].DataType;
+            //    if (existingType.FullName != item.Value.FullName)
+            //    {
+            //        dataTable.Columns[item.Key].DataType = item.Value;
+            //    }
+            //}
 
 
             _dataForInterception.Enqueue(new InterceptionData(command) { Data = dataTable });
@@ -176,7 +176,7 @@ namespace EFRecordAndPlay
         public override object ScalarExecuted(DbCommand command, CommandExecutedEventData eventData, object result)
         {
             if (ModeInterception != ModeInterception.Record)
-                return base.ScalarExecuted(command, eventData, result);
+                return result;
             
 
             _dataForInterception.Enqueue(new InterceptionData(command) { Scalar = result});
