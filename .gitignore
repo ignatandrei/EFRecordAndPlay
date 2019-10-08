@@ -184,3 +184,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 *.lock
 EF_Core3/EFCoreRecordAndPlay/.vs/EFCoreRecordAndPlay/DesignTimeBuild/.dtbcache
+*.ide

@@ -22,8 +22,9 @@ namespace EFRecordAndPlayTest
                 
                 //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0");
                 optionsBuilder.UseInMemoryDatabase(databaseName: "testing");
+                optionsBuilder.AddInterceptors(new InterceptionRecordOrPlay("a.zip", ModeInterception.Record)); ;
+
             }
-            optionsBuilder.AddInterceptors(new InterceptionRecordOrPlay("a.zip", ModeInterception.Record)); ;
             //TODO: add configuring to table
         }
         public DbSet<PersonWithBlog> PersonWithBlog { get; set; }

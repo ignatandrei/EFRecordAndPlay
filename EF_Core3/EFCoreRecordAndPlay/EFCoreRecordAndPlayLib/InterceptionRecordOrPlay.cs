@@ -130,14 +130,30 @@ namespace EFRecordAndPlay
             if (ModeInterception != ModeInterception.Record)
                 return base.ReaderExecuted(command, eventData, result);
 
-                var dataTable=new DataTable {TableName = command.CommandText};
-                dataTable.Load(result);
+            var types = new Dictionary<string, Type>();
+            for (var i = 0; i < result.FieldCount; i++)
+            {
+                var t = result.GetFieldType(i);
+                var name = result.GetName(i);
+                types.Add(name, t);
+            }
 
-                
 
-            _dataForInterception.Enqueue(new InterceptionData(command) {  Data = dataTable});
+            var dataTable = new DataTable { TableName = command.CommandText };
+            dataTable.Load(result);
+            foreach (var item in types)
+            {
+                var existingType = dataTable.Columns[item.Key].DataType;
+                if (existingType.FullName != item.Value.FullName)
+                {
+                    dataTable.Columns[item.Key].DataType = item.Value;
+                }
+            }
+
+
+            _dataForInterception.Enqueue(new InterceptionData(command) { Data = dataTable });
             DecideIfSave();
-            return base.ReaderExecuted(command, eventData, result);
+            return dataTable.CreateDataReader();
         }
         public override InterceptionResult<object> ScalarExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<object> result)
         {
